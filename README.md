@@ -49,91 +49,92 @@ As instruções da skill estão disponíveis em [SKILL.md](SKILL.md). Este READM
 
 Não é necessário usar as cinco IAs ao mesmo tempo. A skill pode ser executada por um único assistente. Comparações entre modelos devem usar o mesmo contexto e preservar a origem de cada contribuição.
 
-### Instalação
+### Ativação pelo chat — copie e cole
 
-O arquivo [SKILL.md](SKILL.md) está incluído no repositório. **Nome de apresentação:** `bussines_test`. **Identificador de instalação e comando:** `bussines-test`, com hífen para compatibilidade com o formato Agent Skills.
+Cole o bloco da ferramenta escolhida diretamente na janela de diálogo. Não é necessário abrir um terminal nem clonar o repositório. **Nome:** `bussines_test`. **Identificador técnico:** `bussines-test`.
 
-#### 1. Baixar o repositório
+O assistente precisa conseguir ler o link ou receber o arquivo. Em modos de agente com acesso a arquivos, o pedido também autoriza salvar a skill no projeto atual. Em chats comuns, o efeito se limita à conversa; persistência entre conversas depende das configurações de projeto, Gem, GPT ou skills disponíveis na interface.
 
-Pré-requisitos: Git e a ferramenta de destino já instalada e autenticada. Os comandos abaixo usam Bash (macOS, Linux ou Git Bash no Windows). Execute o clone apenas na primeira instalação; se já tiver uma cópia, entre nela e use `git pull --ff-only`.
-
-```bash
-git clone https://github.com/rmontteiro/Bussines_test.git
-cd Bussines_test
-```
-
-#### 2. Instalar na ferramenta
-
-Os blocos de cópia abaixo instalam no escopo pessoal, para uso entre projetos. Execute-os a partir da pasta clonada. `cp -i` pede confirmação antes de substituir um arquivo existente.
-
-#### Cursor
-
-```bash
-mkdir -p "$HOME/.cursor/skills/bussines-test"
-cp -i SKILL.md "$HOME/.cursor/skills/bussines-test/SKILL.md"
-```
-
-Depois, abra uma nova conversa no Agent e peça para aplicar `bussines-test`.
-
-#### Claude Code
-
-```bash
-mkdir -p "$HOME/.claude/skills/bussines-test"
-cp -i SKILL.md "$HOME/.claude/skills/bussines-test/SKILL.md"
-```
-
-Abra uma sessão do Claude Code e invoque:
+#### Cursor — chat do Agent
 
 ```text
-/bussines-test
+Configure a skill bussines_test neste projeto usando o identificador bussines-test.
+
+Leia o conteúdo completo de:
+https://raw.githubusercontent.com/rmontteiro/Bussines_test/main/SKILL.md
+
+Salve uma cópia fiel em .cursor/skills/bussines-test/SKILL.md no projeto atual. Se já existir, compare os conteúdos e preserve alterações locais: mostre as diferenças e peça minha decisão antes de substituí-las. Verifique o frontmatter e o caminho. Use suas ferramentas para realizar a configuração, sem me pedir que execute comandos no terminal.
+
+Aplique a skill nesta conversa e responda em português do Brasil. Informe o que foi salvo e se a descoberta nativa foi verificada ou ainda depende de uma nova sessão. Se não conseguir acessar o link ou gravar arquivos, explique a limitação e peça o SKILL.md anexado ou colado, sem afirmar que instalou. Aguarde minha ideia de negócio.
 ```
 
-#### Gemini CLI
+#### Claude — chat ou Claude Code
 
-O Gemini CLI pode instalar diretamente do GitHub. Confirme a instalação quando solicitado. Para instalar somente no projeto atual, substitua `--scope user` por `--scope workspace`.
+```text
+Quero usar a skill bussines_test, identificador bussines-test.
 
-```bash
-gemini skills install https://github.com/rmontteiro/Bussines_test.git --scope user
-gemini skills list
+Leia o conteúdo completo de:
+https://raw.githubusercontent.com/rmontteiro/Bussines_test/main/SKILL.md
+
+Se estiver no Claude Code com acesso ao projeto, salve uma cópia fiel em .claude/skills/bussines-test/SKILL.md e verifique o arquivo. Antes de substituir uma versão com alterações locais, mostre as diferenças e peça minha decisão. Faça a configuração com suas ferramentas, sem me pedir comandos de terminal.
+
+Se estiver no chat web ou sem acesso ao projeto, aplique as instruções nesta conversa. Não afirme que houve instalação persistente. Se eu quiser reutilizar em outras conversas, explique como adicionar o arquivo e uma instrução para consultá-lo ao projeto ou ao recurso de skills disponível na interface.
+
+Responda em português do Brasil. Se não conseguir ler o link, peça que eu anexe ou cole o SKILL.md. Confirme apenas o que realmente realizou e aguarde minha ideia de negócio.
 ```
 
-#### Qwen Code
+#### Gemini — chat, Gem ou Gemini CLI
 
-```bash
-mkdir -p "$HOME/.qwen/skills/bussines-test"
-cp -i SKILL.md "$HOME/.qwen/skills/bussines-test/SKILL.md"
+```text
+Ative a skill bussines_test, identificador bussines-test, a partir do conteúdo completo deste arquivo:
+https://raw.githubusercontent.com/rmontteiro/Bussines_test/main/SKILL.md
+
+Se estiver no Gemini CLI com acesso ao projeto, salve uma cópia fiel em .gemini/skills/bussines-test/SKILL.md. Verifique o arquivo e, se houver recurso disponível, atualize a descoberta de skills. Antes de substituir alterações locais, mostre as diferenças e peça minha decisão. Execute a configuração com suas ferramentas, sem me pedir comandos de terminal.
+
+Se estiver no Gemini web ou em um Gem sem acesso ao projeto, siga a skill nesta conversa. Para persistência, explique como incluir as instruções na configuração de um Gem; não declare que essa configuração foi feita sem realmente realizá-la.
+
+Responda em português do Brasil. Se não puder ler o link, peça o SKILL.md anexado ou colado. Distinga arquivo salvo de skill descoberta e aguarde minha ideia de negócio.
 ```
 
-Abra uma nova sessão do Qwen Code, consulte `/skills` e peça para aplicar `bussines-test`.
+#### Qwen — chat ou Qwen Code
 
-#### ChatGPT e interfaces web
+```text
+Configure e aplique a skill bussines_test, identificador bussines-test.
 
-**ChatGPT:** os comandos anteriores não instalam uma skill no ChatGPT. Abra um projeto, adicione `SKILL.md` aos arquivos e inclua nas instruções: “Antes de avaliar ideias de negócio, leia e aplique o arquivo SKILL.md; responda em português do Brasil”. Para um GPT personalizado, quando disponível, adicione o arquivo ao conhecimento e uma instrução explícita para consultá-lo. Em uma conversa avulsa, anexe o arquivo e peça sua aplicação.
+Leia o conteúdo completo de:
+https://raw.githubusercontent.com/rmontteiro/Bussines_test/main/SKILL.md
 
-**Claude web, Gemini web e Qwen Chat:** use o conteúdo do arquivo nas instruções de projeto, personalização ou Gem quando o produto oferecer esse recurso; alternativamente, anexe ou cole o conteúdo na conversa e peça para segui-lo. A instalação no Claude Code, Gemini CLI ou Qwen Code não configura automaticamente as respectivas interfaces web.
+Se estiver no Qwen Code com acesso ao projeto, salve uma cópia fiel em .qwen/skills/bussines-test/SKILL.md e verifique o arquivo. Preserve alterações locais: mostre diferenças e peça minha decisão antes de substituí-las. Faça a configuração com suas ferramentas, sem me pedir comandos de terminal.
 
-#### Alternativa no Windows PowerShell
+Se estiver no Qwen Chat ou sem acesso a arquivos, aplique a skill apenas nesta conversa. Não afirme que criou uma instalação persistente. Para reutilização, indique as opções de personalização realmente disponíveis na interface.
 
-Na pasta clonada, escolha o destino na tabela e execute o bloco. Use somente uma linha de atribuição a `$skillTarget` por instalação.
-
-| Tool | PowerShell |
-| --- | --- |
-| Cursor | `$skillTarget = Join-Path $HOME '.cursor/skills/bussines-test'` |
-| Claude Code | `$skillTarget = Join-Path $HOME '.claude/skills/bussines-test'` |
-| Qwen Code | `$skillTarget = Join-Path $HOME '.qwen/skills/bussines-test'` |
-
-```powershell
-New-Item -ItemType Directory -Force -Path $skillTarget | Out-Null
-Copy-Item -LiteralPath .\SKILL.md -Destination (Join-Path $skillTarget 'SKILL.md') -Confirm
+Responda em português do Brasil. Se não conseguir abrir o link, peça que eu anexe ou cole o SKILL.md. Informe o resultado real da configuração e aguarde minha ideia de negócio.
 ```
 
-#### Verificação e atualização
+#### ChatGPT — conversa, projeto ou GPT
 
-Verifique se `bussines-test` aparece na lista de skills da ferramenta e peça uma análise curta de uma ideia. Se não aparecer, confira o caminho e abra uma nova sessão. Para atualizar, rode `git pull --ff-only` na cópia do repositório e repita a cópia para a ferramenta. No Gemini CLI, se a versão já instalada impedir reinstalação, remova-a com `gemini skills uninstall bussines-test --scope user` e repita o comando de instalação.
+```text
+Quero aplicar a skill bussines_test nesta conversa.
 
-Os comandos foram conferidos com a documentação oficial; a ativação em cada aplicativo depende da versão e não foi testada nesta sessão. Instalar os arquivos não exige chaves de API específicas desta skill.
+Abra e leia o conteúdo completo de:
+https://raw.githubusercontent.com/rmontteiro/Bussines_test/main/SKILL.md
 
-Documentação oficial: [Cursor](https://cursor.com/docs/skills) · [Claude Code](https://code.claude.com/docs/en/skills) · [Gemini CLI](https://geminicli.com/docs/cli/skills/) · [Qwen Code](https://qwenlm.github.io/qwen-code-docs/en/users/features/skills/) · [ChatGPT Projects](https://help.openai.com/en/articles/10169521-projects-in-chatgpt) · [GPTs](https://help.openai.com/en/articles/8554397-creating-and-editing-gpts)
+Siga as instruções da skill para as próximas análises de negócio nesta conversa e responda em português do Brasil. Se não conseguir acessar o conteúdo completo, peça que eu anexe ou cole o SKILL.md antes de afirmar que a skill foi carregada.
+
+Não afirme que instalou uma extensão, alterou minha memória ou configurou outros chats. Se eu quiser persistência, oriente-me a adicionar o SKILL.md aos arquivos de um projeto, ou ao conhecimento de um GPT quando disponível, e a incluir uma instrução explícita para consultá-lo.
+
+Confirme a leitura somente se ela ocorreu e aguarde minha ideia de negócio.
+```
+
+#### Se o link não abrir
+
+Abra [SKILL.md](SKILL.md) no GitHub e anexe o arquivo ou cole seu conteúdo completo na mesma conversa. Depois, repita o pedido de aplicação. O endereço do repositório, sozinho, não garante que a ferramenta tenha lido a skill.
+
+#### Verificação e atualização pelo chat
+
+Após a confirmação, envie o exemplo abaixo. Para atualizar, cole novamente o bloco da ferramenta e peça que releia a versão atual do link. Nos agentes com arquivos, confirme eventuais substituições após revisar as diferenças. Em projetos, Gems ou GPTs configurados manualmente, atualize também o arquivo ou as instruções pela interface.
+
+Os textos acima são pedidos em linguagem natural, não comandos nativos de instalação. A configuração depende das ferramentas e permissões da sessão; não foi testada dentro dos cinco aplicativos.
 
 ### Exemplo de solicitação
 
@@ -209,91 +210,92 @@ Las instrucciones de la skill están disponibles en [SKILL.md](SKILL.md). Este R
 
 No hace falta usar las cinco IAs al mismo tiempo. Un solo asistente puede ejecutar la skill. Para comparar modelos, usá el mismo contexto e identificá el origen de cada aporte.
 
-### Instalación
+### Activación por chat — copiá y pegá
 
-El archivo [SKILL.md](SKILL.md) está incluido en el repositorio. **Nombre visible:** `bussines_test`. **Identificador de instalación y comando:** `bussines-test`, con guion para respetar el formato Agent Skills.
+Pegá el bloque de la herramienta elegida directamente en su ventana de diálogo. No hace falta abrir una terminal ni clonar el repositorio. **Nombre:** `bussines_test`. **Identificador técnico:** `bussines-test`.
 
-#### 1. Descargar el repositorio
+El asistente necesita leer el enlace o recibir el archivo. En modo agente con acceso a archivos, el pedido también autoriza guardar la skill en el proyecto actual. En un chat común, el efecto se limita a la conversación; la persistencia depende de las opciones de proyecto, Gem, GPT o skills de la interfaz.
 
-Requisitos: Git y la herramienta de destino ya instalada y autenticada. Los comandos usan Bash (macOS, Linux o Git Bash en Windows). Cloná una sola vez; si ya tenés una copia, entrá en esa carpeta y ejecutá `git pull --ff-only`.
-
-```bash
-git clone https://github.com/rmontteiro/Bussines_test.git
-cd Bussines_test
-```
-
-#### 2. Instalar en la herramienta
-
-Los bloques de copia instalan la skill en el ámbito personal, para todos tus proyectos. Ejecutalos desde la carpeta clonada. `cp -i` pide confirmación antes de reemplazar un archivo existente.
-
-#### Cursor
-
-```bash
-mkdir -p "$HOME/.cursor/skills/bussines-test"
-cp -i SKILL.md "$HOME/.cursor/skills/bussines-test/SKILL.md"
-```
-
-Después, abrí una conversación nueva en Agent y pedile que aplique `bussines-test`.
-
-#### Claude Code
-
-```bash
-mkdir -p "$HOME/.claude/skills/bussines-test"
-cp -i SKILL.md "$HOME/.claude/skills/bussines-test/SKILL.md"
-```
-
-Abrí una sesión de Claude Code e invocá:
+#### Cursor — chat de Agent
 
 ```text
-/bussines-test
+Configurá la skill bussines_test en este proyecto con el identificador bussines-test.
+
+Leé el contenido completo de:
+https://raw.githubusercontent.com/rmontteiro/Bussines_test/main/SKILL.md
+
+Guardá una copia fiel en .cursor/skills/bussines-test/SKILL.md dentro del proyecto actual. Si existe, compará los contenidos y preservá los cambios locales: mostrá las diferencias y pedime una decisión antes de reemplazarlos. Verificá el frontmatter y la ruta. Usá tus herramientas para configurarla, sin pedirme comandos de terminal.
+
+Aplicá la skill en esta conversación y respondé en español de Argentina. Indicá qué guardaste y si verificaste el descubrimiento nativo o si requiere una sesión nueva. Si no podés leer el enlace o escribir archivos, explicá la limitación y pedime el SKILL.md adjunto o pegado. No afirmes que instalaste algo sin hacerlo. Esperá mi idea de negocio.
 ```
 
-#### Gemini CLI
+#### Claude — chat o Claude Code
 
-Gemini CLI permite instalar directamente desde GitHub. Confirmá la instalación cuando te lo pida. Para instalar solo en el proyecto actual, reemplazá `--scope user` por `--scope workspace`.
+```text
+Quiero usar la skill bussines_test, identificador bussines-test.
 
-```bash
-gemini skills install https://github.com/rmontteiro/Bussines_test.git --scope user
-gemini skills list
+Leé el contenido completo de:
+https://raw.githubusercontent.com/rmontteiro/Bussines_test/main/SKILL.md
+
+Si estás en Claude Code con acceso al proyecto, guardá una copia fiel en .claude/skills/bussines-test/SKILL.md y verificá el archivo. Antes de reemplazar una versión con cambios locales, mostrá las diferencias y pedime una decisión. Usá tus herramientas, sin pedirme comandos de terminal.
+
+Si estás en el chat web o sin acceso al proyecto, aplicá las instrucciones en esta conversación. No afirmes que hay una instalación persistente. Para reutilizarla, explicá cómo agregar el archivo y una instrucción para consultarlo al proyecto o a la función de skills disponible.
+
+Respondé en español de Argentina. Si no podés leer el enlace, pedime que adjunte o pegue el SKILL.md. Confirmá solo lo que hiciste y esperá mi idea de negocio.
 ```
 
-#### Qwen Code
+#### Gemini — chat, Gem o Gemini CLI
 
-```bash
-mkdir -p "$HOME/.qwen/skills/bussines-test"
-cp -i SKILL.md "$HOME/.qwen/skills/bussines-test/SKILL.md"
+```text
+Activá la skill bussines_test, identificador bussines-test, usando el contenido completo de:
+https://raw.githubusercontent.com/rmontteiro/Bussines_test/main/SKILL.md
+
+Si estás en Gemini CLI con acceso al proyecto, guardá una copia fiel en .gemini/skills/bussines-test/SKILL.md. Verificá el archivo y actualizá el descubrimiento de skills si tenés esa función disponible. Antes de reemplazar cambios locales, mostrá las diferencias y pedime una decisión. Usá tus herramientas, sin pedirme comandos de terminal.
+
+Si estás en Gemini web o en un Gem sin acceso al proyecto, seguí la skill en esta conversación. Para persistencia, explicá cómo incluir las instrucciones en la configuración de un Gem; no afirmes que lo configuraste sin hacerlo.
+
+Respondé en español de Argentina. Si no podés leer el enlace, pedime el SKILL.md adjunto o pegado. Diferenciá archivo guardado de skill descubierta y esperá mi idea de negocio.
 ```
 
-Abrí una sesión nueva de Qwen Code, consultá `/skills` y pedile que aplique `bussines-test`.
+#### Qwen — chat o Qwen Code
 
-#### ChatGPT e interfaces web
+```text
+Configurá y aplicá la skill bussines_test, identificador bussines-test.
 
-**ChatGPT:** los comandos anteriores no instalan una skill en ChatGPT. Creá un proyecto, agregá `SKILL.md` a los archivos e incluí esta instrucción: “Antes de evaluar ideas de negocio, leé y aplicá SKILL.md; respondé en español de Argentina”. Para un GPT personalizado, cuando esté disponible, agregá el archivo al conocimiento y una instrucción explícita para consultarlo. En un chat suelto, adjuntá el archivo y pedí su aplicación.
+Leé el contenido completo de:
+https://raw.githubusercontent.com/rmontteiro/Bussines_test/main/SKILL.md
 
-**Claude web, Gemini web y Qwen Chat:** usá el contenido en las instrucciones de un proyecto, la personalización o un Gem cuando el producto lo permita; también podés adjuntarlo o pegarlo en la conversación y pedir que lo siga. Instalar en Claude Code, Gemini CLI o Qwen Code no configura automáticamente las interfaces web.
+Si estás en Qwen Code con acceso al proyecto, guardá una copia fiel en .qwen/skills/bussines-test/SKILL.md y verificá el archivo. Preservá cambios locales: mostrá diferencias y pedime una decisión antes de reemplazarlos. Usá tus herramientas, sin pedirme comandos de terminal.
 
-#### Alternativa en Windows PowerShell
+Si estás en Qwen Chat o sin acceso a archivos, aplicá la skill solo en esta conversación. No afirmes que creaste una instalación persistente. Para reutilizarla, indicá las opciones de personalización realmente disponibles.
 
-Desde la carpeta clonada, elegí el destino de la tabla y ejecutá el bloque. Usá una sola asignación a `$skillTarget` por instalación.
-
-| Tool | PowerShell |
-| --- | --- |
-| Cursor | `$skillTarget = Join-Path $HOME '.cursor/skills/bussines-test'` |
-| Claude Code | `$skillTarget = Join-Path $HOME '.claude/skills/bussines-test'` |
-| Qwen Code | `$skillTarget = Join-Path $HOME '.qwen/skills/bussines-test'` |
-
-```powershell
-New-Item -ItemType Directory -Force -Path $skillTarget | Out-Null
-Copy-Item -LiteralPath .\SKILL.md -Destination (Join-Path $skillTarget 'SKILL.md') -Confirm
+Respondé en español de Argentina. Si no podés abrir el enlace, pedime que adjunte o pegue el SKILL.md. Informá el resultado real y esperá mi idea de negocio.
 ```
 
-#### Verificación y actualización
+#### ChatGPT — conversación, proyecto o GPT
 
-Verificá que `bussines-test` aparezca en la lista de skills y pedí un análisis breve. Si no aparece, revisá la ruta y abrí una sesión nueva. Para actualizar, ejecutá `git pull --ff-only` en la copia del repositorio y repetí la copia. En Gemini CLI, si la versión instalada impide reinstalar, ejecutá `gemini skills uninstall bussines-test --scope user` y repetí la instalación.
+```text
+Quiero aplicar la skill bussines_test en esta conversación.
 
-Los comandos se contrastaron con la documentación oficial; la activación depende de la versión y no se probó dentro de cada aplicación en esta sesión. Esta skill no requiere claves de API propias para instalar sus archivos.
+Abrí y leé el contenido completo de:
+https://raw.githubusercontent.com/rmontteiro/Bussines_test/main/SKILL.md
 
-Documentación oficial: [Cursor](https://cursor.com/docs/skills) · [Claude Code](https://code.claude.com/docs/en/skills) · [Gemini CLI](https://geminicli.com/docs/cli/skills/) · [Qwen Code](https://qwenlm.github.io/qwen-code-docs/en/users/features/skills/) · [ChatGPT Projects](https://help.openai.com/en/articles/10169521-projects-in-chatgpt) · [GPTs](https://help.openai.com/en/articles/8554397-creating-and-editing-gpts)
+Seguí sus instrucciones para los próximos análisis de negocio en esta conversación y respondé en español de Argentina. Si no podés acceder al contenido completo, pedime que adjunte o pegue el SKILL.md antes de afirmar que cargaste la skill.
+
+No afirmes que instalaste una extensión, cambiaste mi memoria o configuraste otros chats. Para persistencia, orientame a agregar el SKILL.md a los archivos de un proyecto, o al conocimiento de un GPT cuando esté disponible, e incluir una instrucción explícita para consultarlo.
+
+Confirmá la lectura solo si ocurrió y esperá mi idea de negocio.
+```
+
+#### Si el enlace no abre
+
+Abrí [SKILL.md](SKILL.md) en GitHub y adjuntá el archivo o pegá su contenido completo en la misma conversación. Después, repetí el pedido. Compartir la URL del repositorio no garantiza que el asistente haya leído la skill.
+
+#### Verificación y actualización por chat
+
+Después de la confirmación, enviá el ejemplo de abajo. Para actualizar, pegá nuevamente el bloque y pedí que relea la versión actual del enlace. En agentes con archivos, revisá las diferencias antes de confirmar reemplazos. En proyectos, Gems o GPTs configurados manualmente, actualizá también el archivo o las instrucciones desde la interfaz.
+
+Estos textos son pedidos en lenguaje natural, no comandos nativos de instalación. La configuración depende de las herramientas y los permisos de la sesión; no se probó dentro de las cinco aplicaciones.
 
 ### Ejemplo de solicitud
 
@@ -369,91 +371,92 @@ The skill instructions are available in [SKILL.md](SKILL.md). This README docume
 
 You do not need to run all five AI tools at once. A single assistant can apply the skill. When comparing models, use the same context and identify the source of each contribution.
 
-### Installation
+### Chat activation — copy and paste
 
-The repository includes [SKILL.md](SKILL.md). **Display name:** `bussines_test`. **Installation identifier and command:** `bussines-test`, using a hyphen for Agent Skills compatibility.
+Paste your tool's block directly into its chat window. You do not need to open a terminal or clone the repository. **Display name:** `bussines_test`. **Technical identifier:** `bussines-test`.
 
-#### 1. Download the repository
+The assistant must be able to read the link or receive the file. In agent mode with file access, the request also authorizes saving the skill in the current project. In a regular chat, it applies to that conversation; persistence depends on the interface's project, Gem, GPT, or skill settings.
 
-Prerequisites: Git and an installed, authenticated target tool. Commands use Bash (macOS, Linux, or Git Bash on Windows). Clone only once; if you already have a copy, open that folder and run `git pull --ff-only`.
-
-```bash
-git clone https://github.com/rmontteiro/Bussines_test.git
-cd Bussines_test
-```
-
-#### 2. Install in your tool
-
-The copy blocks install a personal skill across projects. Run them from the cloned folder. `cp -i` asks before replacing an existing file.
-
-#### Cursor
-
-```bash
-mkdir -p "$HOME/.cursor/skills/bussines-test"
-cp -i SKILL.md "$HOME/.cursor/skills/bussines-test/SKILL.md"
-```
-
-Then open a new Agent conversation and ask it to apply `bussines-test`.
-
-#### Claude Code
-
-```bash
-mkdir -p "$HOME/.claude/skills/bussines-test"
-cp -i SKILL.md "$HOME/.claude/skills/bussines-test/SKILL.md"
-```
-
-Open a Claude Code session and invoke:
+#### Cursor — Agent chat
 
 ```text
-/bussines-test
+Configure the bussines_test skill in this project using the identifier bussines-test.
+
+Read the full contents of:
+https://raw.githubusercontent.com/rmontteiro/Bussines_test/main/SKILL.md
+
+Save a faithful copy to .cursor/skills/bussines-test/SKILL.md in the current project. If it exists, compare contents and preserve local edits: show differences and ask for my decision before replacing them. Check the frontmatter and path. Use your tools to configure it without asking me to run terminal commands.
+
+Apply the skill in this conversation and respond in US English. Report what you saved and whether native discovery was verified or requires a new session. If you cannot read the link or write files, explain the limitation and ask me to attach or paste SKILL.md. Do not claim installation without completing it. Wait for my business idea.
 ```
 
-#### Gemini CLI
+#### Claude — chat or Claude Code
 
-Gemini CLI supports installation directly from GitHub. Confirm installation when prompted. For the current project only, replace `--scope user` with `--scope workspace`.
+```text
+I want to use the bussines_test skill, identifier bussines-test.
 
-```bash
-gemini skills install https://github.com/rmontteiro/Bussines_test.git --scope user
-gemini skills list
+Read the full contents of:
+https://raw.githubusercontent.com/rmontteiro/Bussines_test/main/SKILL.md
+
+If you are in Claude Code with project access, save a faithful copy to .claude/skills/bussines-test/SKILL.md and verify the file. Before replacing a version with local edits, show differences and ask for my decision. Use your tools without asking me for terminal commands.
+
+If you are in web chat or lack project access, apply the instructions in this conversation. Do not claim persistent installation. For reuse, explain how to add the file and an instruction to consult it to a project or the available skills feature.
+
+Respond in US English. If you cannot read the link, ask me to attach or paste SKILL.md. Confirm only what you completed and wait for my business idea.
 ```
 
-#### Qwen Code
+#### Gemini — chat, Gem, or Gemini CLI
 
-```bash
-mkdir -p "$HOME/.qwen/skills/bussines-test"
-cp -i SKILL.md "$HOME/.qwen/skills/bussines-test/SKILL.md"
+```text
+Activate the bussines_test skill, identifier bussines-test, using the full contents of:
+https://raw.githubusercontent.com/rmontteiro/Bussines_test/main/SKILL.md
+
+If you are in Gemini CLI with project access, save a faithful copy to .gemini/skills/bussines-test/SKILL.md. Verify the file and refresh skill discovery if that capability is available. Before replacing local edits, show differences and ask for my decision. Use your tools without asking me for terminal commands.
+
+If you are in Gemini web or a Gem without project access, follow the skill in this conversation. For persistence, explain how to add its instructions to a Gem's settings; do not claim to have changed those settings unless you actually did.
+
+Respond in US English. If you cannot read the link, ask me to attach or paste SKILL.md. Distinguish a saved file from a discovered skill and wait for my business idea.
 ```
 
-Open a new Qwen Code session, check `/skills`, and ask it to apply `bussines-test`.
+#### Qwen — chat or Qwen Code
 
-#### ChatGPT and web interfaces
+```text
+Configure and apply the bussines_test skill, identifier bussines-test.
 
-**ChatGPT:** the commands above do not install a skill into ChatGPT. Create a project, add `SKILL.md` to its files, and add this instruction: “Before evaluating business ideas, read and apply SKILL.md; respond in US English.” For a custom GPT, where available, add the file as knowledge and explicitly instruct the GPT to consult it. For a standalone chat, attach the file and ask the assistant to apply it.
+Read the full contents of:
+https://raw.githubusercontent.com/rmontteiro/Bussines_test/main/SKILL.md
 
-**Claude web, Gemini web, and Qwen Chat:** use the content in project instructions, customization, or a Gem where supported; alternatively, attach or paste it into a conversation and ask the assistant to follow it. Installing into Claude Code, Gemini CLI, or Qwen Code does not automatically configure the corresponding web interface.
+If you are in Qwen Code with project access, save a faithful copy to .qwen/skills/bussines-test/SKILL.md and verify the file. Preserve local edits: show differences and ask for my decision before replacing them. Use your tools without asking me for terminal commands.
 
-#### Windows PowerShell alternative
+If you are in Qwen Chat or lack file access, apply the skill only in this conversation. Do not claim persistent installation. For reuse, describe customization options actually available in the interface.
 
-From the cloned folder, choose a target from the table and run the block. Use only one `$skillTarget` assignment per installation.
-
-| Tool | PowerShell |
-| --- | --- |
-| Cursor | `$skillTarget = Join-Path $HOME '.cursor/skills/bussines-test'` |
-| Claude Code | `$skillTarget = Join-Path $HOME '.claude/skills/bussines-test'` |
-| Qwen Code | `$skillTarget = Join-Path $HOME '.qwen/skills/bussines-test'` |
-
-```powershell
-New-Item -ItemType Directory -Force -Path $skillTarget | Out-Null
-Copy-Item -LiteralPath .\SKILL.md -Destination (Join-Path $skillTarget 'SKILL.md') -Confirm
+Respond in US English. If you cannot open the link, ask me to attach or paste SKILL.md. Report the actual result and wait for my business idea.
 ```
 
-#### Verification and updates
+#### ChatGPT — conversation, project, or GPT
 
-Check that `bussines-test` appears in the tool's skill list and request a short business analysis. If it is missing, check the path and start a new session. To update, run `git pull --ff-only` in the repository copy and repeat the copy step. In Gemini CLI, if the installed version prevents reinstallation, run `gemini skills uninstall bussines-test --scope user` and repeat installation.
+```text
+I want to apply the bussines_test skill in this conversation.
 
-Commands were checked against official documentation; activation depends on the application version and was not tested inside each application in this session. No skill-specific API keys are required to install these files.
+Open and read the full contents of:
+https://raw.githubusercontent.com/rmontteiro/Bussines_test/main/SKILL.md
 
-Official documentation: [Cursor](https://cursor.com/docs/skills) · [Claude Code](https://code.claude.com/docs/en/skills) · [Gemini CLI](https://geminicli.com/docs/cli/skills/) · [Qwen Code](https://qwenlm.github.io/qwen-code-docs/en/users/features/skills/) · [ChatGPT Projects](https://help.openai.com/en/articles/10169521-projects-in-chatgpt) · [GPTs](https://help.openai.com/en/articles/8554397-creating-and-editing-gpts)
+Follow its instructions for subsequent business analyses in this conversation and respond in US English. If you cannot access the full contents, ask me to attach or paste SKILL.md before claiming the skill is loaded.
+
+Do not claim to have installed an extension, changed my memory, or configured other chats. For persistence, guide me to add SKILL.md to a project's files, or a GPT's knowledge where available, and include an explicit instruction to consult it.
+
+Confirm reading only if it happened and wait for my business idea.
+```
+
+#### If the link cannot be opened
+
+Open [SKILL.md](SKILL.md) on GitHub and attach the file or paste its full contents into the same conversation. Then repeat your request. A repository URL alone does not guarantee that the assistant has read the skill.
+
+#### Verification and updates through chat
+
+After confirmation, send the example below. To update, paste the tool's block again and ask it to reread the current linked version. In file-enabled agents, review differences before approving replacements. For manually configured projects, Gems, or GPTs, also update the file or instructions through the interface.
+
+These blocks are natural-language requests, not native installation commands. Configuration depends on session tools and permissions; it has not been tested inside all five applications.
 
 ### Example request
 
